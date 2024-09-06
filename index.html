@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTL-InfoHub</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="assets/logo.png" alt="Hauptlogo" class="main-logo">
+        <div class="orbit">
+            <div class="orbit-item top">
+                <img src="assets/RäumeSuchen.jpg" alt="Raum Suchen" class="orbit-logo" data-translate-key="Räume Suchen">
+                <p data-translate-key="Räume Suchen">Räume Suchen</p>
+            </div>
+            <div class="orbit-item bottom">
+                <img src="assets/MeetingLogo.avif" alt="Meetingräume" class="orbit-logo" data-translate-key="Meetingräume Buchen">
+                <p data-translate-key="Meetingräume Buchen">Meetingräume Buchen</p>
+            </div>
+            <div class="orbit-item left">
+                <img src="assets/Lehrergespräch.webp" alt="Lehrergespräch" class="orbit-logo" data-translate-key="Lehrergespräch">
+                <p data-translate-key="Lehrergespräch">Lehrergespräch</p>
+            </div>
+            <div class="orbit-item right">
+                <img src="assets/ReportSystemLogo.png" alt="Reportsystem" class="orbit-logo" data-translate-key="Reportsystem">
+                <p data-translate-key="Reportsystem">Reportsystem</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="assets/language.png" alt="Sprach Icon" class="language-icon">
+        <div class="language-menu" id="languageMenu">
+            <ul>
+                <li data-language="de">Deutsch</li>
+                <li data-language="en">Englisch</li>
+                <li data-language="sr">Serbo-Kroatisch</li>
+                <li data-language="tr">Türkisch</li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Overlay for translation loading -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-message">Bitte warten...</div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

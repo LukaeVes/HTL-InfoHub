@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  position: relative;
+}
+
+body, p, span, a, li, div {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-logo {
+  width: 200px;
+  position: absolute;
+}
+
+.orbit {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px dashed #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orbit-item.top {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+.orbit-item.bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+
+.orbit-item.left {
+  left: 0;
+  top: 50%;
+  transform: translate(-100%, -50%);
+}
+
+.orbit-item.right {
+  right: 0;
+  top: 50%;
+  transform: translate(100%, -50%);
+}
+
+.orbit-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dunkelgrau mit Transparenz */
+  color: white;
+  display: none; /* Standardmäßig versteckt */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Über anderen Inhalten anzeigen */
+}
+
+.loading-message {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.language-menu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  list-style-type: none;
+  z-index: 1000;
+  max-width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 10px;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+/* Wenn das Menü sichtbar ist */
+.language-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.language-menu li {
+  padding: 8px 12px; /* Mehr Platz um die Textelemente */
+  margin: 5px 0;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  border-radius: 4px; /* Abgerundete Ecken für die Listenelemente */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Sanfte Übergänge für Hover-Effekte */
+}
+
+.language-menu li:hover {
+  background-color: #f0f0f0; /* Hintergrundfarbe beim Hover */
+  color: #333; /* Textfarbe beim Hover */
+}
+
+.language-icon {
+  width: 40px;
+  cursor: pointer;
+}
+
