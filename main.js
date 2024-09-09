@@ -11,9 +11,9 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      preload: path.join(__dirname, 'preload.js') // Falls du preload.js hast
+      preload: path.join(__dirname, 'preload.js')
     },
-    fullscreen: true // Fullscreen setzen
+    fullscreen: true
   });
 
   win.loadFile('index.html');
@@ -21,6 +21,12 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
 });
 
 app.on('window-all-closed', () => {

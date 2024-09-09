@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -19,8 +20,10 @@
                 <p data-translate-key="Meetingräume Buchen">Meetingräume Buchen</p>
             </div>
             <div class="orbit-item left">
-                <img src="assets/Lehrergespräch.webp" alt="Lehrergespräch" class="orbit-logo" data-translate-key="Lehrergespräch">
-                <p data-translate-key="Lehrergespräch">Lehrergespräch</p>
+                <a href="#" id="terminVereinbaren">
+                    <img src="assets/Lehrergespräch.webp" alt="Lehrergespräch" class="orbit-logo" data-translate-key="Lehrergespräch">
+                    <p data-translate-key="Lehrergespräch">Lehrergespräch</p>
+                </a>
             </div>
             <div class="orbit-item right">
                 <img src="assets/ReportSystemLogo.png" alt="Reportsystem" class="orbit-logo" data-translate-key="Reportsystem">
@@ -41,11 +44,31 @@
         </div>
     </footer>
 
-    <!-- Overlay for translation loading -->
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-message">Bitte warten...</div>
     </div>
 
-    <script src="renderer.js"></script>
+    <script>
+        document.getElementById('terminVereinbaren').addEventListener('click', function(event) {
+            event.preventDefault();
+            fetch('/run-crawler')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (data.file) {
+                            window.location.href = data.file;  // Herunterladen der JSON-Datei
+                        } else {
+                            alert('Keine Lehrer gefunden oder keine Datei zum Herunterladen.');
+                        }
+                    } else {
+                        alert('Fehler beim Abrufen der Lehrerliste: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Fehler beim Abrufen der Lehrerliste');
+                });
+        });
+    </script>
 </body>
 </html>

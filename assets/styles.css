@@ -17,6 +17,17 @@ body, p, span, a, li, div {
   padding: 0;
 }
 
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+a:hover {
+  opacity: 0.8; 
+}
+
 .container {
   position: relative;
   width: 100vw;

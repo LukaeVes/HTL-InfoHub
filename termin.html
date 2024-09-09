@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lehrergespräch Termin</title>
+    <link rel="stylesheet" href="assets/termin.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="back-button">
+            <img src="assets/back.png" alt="Zurück" class="back-arrow">
+            <span>Zurück</span>
+        </a>
+    </header>
+    <main>
+        <h1>Lehrergespräch Terminvereinbarung</h1>
+
+        <form id="appointmentForm">
+            <label for="date">Datum:</label>
+            <input type="date" id="date" name="date" required>
+        
+            <label for="time">Zeit:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="teacher">Lehrkraft:</label>
+            <select id="teacher" name="teacher" required>
+                <!-- Hier wird die Lehrerliste eingefügt -->
+            </select>
+        
+            <input type="submit" value="Termin vorschlagen">
+        </form>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('/run_crawler')
+                    .then(response => response.json())
+                    .then(data => {
+                        const teacherSelect = document.getElementById('teacher');
+                        if (data.lehrer) {
+                            data.lehrer.forEach(teacher => {
+                                const option = document.createElement('option');
+                                option.value = teacher;
+                                option.textContent = teacher;
+                                teacherSelect.appendChild(option);
+                            });
+                        }
+                    });
+            });
+        </script>
+    </main>
+</body>
+</html>
